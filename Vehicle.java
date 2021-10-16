@@ -7,11 +7,13 @@ public class Vehicle{
 	private String brand;
 	private String type;
 	private int wheelNum;
+	private String name;
 	
 	
-	public Vehicle(String brand, String type)	{
+	public Vehicle(String brand, String type, String name)	{
 		this.brand = brand;
 		this.type = type;
+		this.name = name;
 		
 	}// End of the constructor	
 	
@@ -37,6 +39,9 @@ public class Vehicle{
 		this.wheelNum = wheelNum;
 	}// End of the the setWheelNum method
 	
+	public void setName(String name){
+		this.name = name;
+	}// End of the setName method
 	
 	/*Getters*/
 	
@@ -55,6 +60,19 @@ public class Vehicle{
 	public int getWheelNum() {
 		return this.wheelNum;
 	}// End of the getWheelNum method
+	
+	public String getname() {
+		return this.name;
+	}// End of the getName method	
+	
+	public String toString() {
+		return this.color + " " + this.brand + " " + this.name;
+	}// End of the toString method
+	
+	public boolean equals(Vehicle v) { // More work to be done
+		return this.brand.equals(v.brand) && this.color.equals(v.color) && this.name.equals(v.name) && this.type.equals(v.type) && this.wheelNum == v.wheelNum;
+		
+	}// End of the equals method
 	
 	
 }// End of the vehicle class
