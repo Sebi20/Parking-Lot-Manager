@@ -19,6 +19,7 @@ public class Vehicle{
 		this.type = type;
 		this.name = name;
 		
+		
 	}// End of the constructor	
 	
 	public Vehicle() {
