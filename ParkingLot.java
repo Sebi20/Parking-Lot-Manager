@@ -6,38 +6,78 @@ import java.time.*;
 
 
 public class ParkingLot{
-	private Set <Set<Car>> lot;
-	private int levels;// The number of levels that a parking lot has. 
-	private int lvlMax;// Max number of cars that can fit on each level
-	private int lotMax;// Maximum Parking spaces
-	private int count;// The count of all the cars in the parking lot
+	private Set <Car> lot;
+	final private int lotMax;// Maximum Parking spaces
 	private LocalTime time;
-	private double price;
-	private boolean isFull;
-	private boolean isEmpty;
+	final private double price;
 	
 	
 			
 	
-	public ParkingLot() {
+	public ParkingLot(int max, double price) {
+		this.lotMax = max;
+		this.price = price;
 		
 		
 	}// End of the Parking
 	
-	/*Setters*/
-	public void setLevels(int levels) {
-		this.levels = levels;
+	public void checkIn(Car car, LocalTime time) {
 		
-	}// End of the setLevels method
-	
-	public void lvlMax(int max) {
-		this.lvlMax = max;
-	}// End of the lvlMax method
+		
+	}// End of the checkIn method
 	
 	
 	
 	
-	/*Getters*/
+	
+	/*Adds a car to the parking lot
+	 * However if car lot is full then the car is not added, false is returned. 
+	 * returns true if parking lot isn't full */
+	public boolean addCar(Car car) {
+		if(isFull()) {
+			return false;
+		}// End of the if statement
+		return this.lot.add(car);
+		
+	}// End of the addCar method
+	
+	public boolean removeCar(Car car) {
+		if(this.isEmpty()) {
+			return false;
+		}// End of the if statement
+		
+		return this.lot.remove(car);
+	}// End of the removeCar method
+	
+	/*If the number of cars in the lot is equal to max spaces in the lot
+	 * then the method returns true
+	 * otherwise, false
+	 * */
+	public boolean isFull() {
+		return this.lotMax == this.numOfCars();
+	}// End of the isFull method
+	
+	public boolean isEmpty() {
+		if(this.lot.size() == 0) {
+			return true;
+		}// End of if statement
+		
+		return false;
+	}// End of the isEmpty method
+	
+	public int numOfCars() {
+		return this.lot.size();
+	}// End of the numOfCars method
+	
+	public boolean contains(Car car) {
+		return this.lot.contains(car);
+	}// End of the contains method
+	
+	
+	
+	
+	
+	
 	
 	
 	
