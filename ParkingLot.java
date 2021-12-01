@@ -6,10 +6,9 @@ import java.time.*;
 
 
 public class ParkingLot{
-	private Set <Car> lot;
+	private Map<Car, LocalTime>lot;
 	final private int lotMax;// Maximum Parking spaces
-	private LocalTime time;
-	final private double price;
+	final private double price; 
 	
 	
 			
@@ -21,33 +20,22 @@ public class ParkingLot{
 		
 	}// End of the Parking
 	
-	public void checkIn(Car car, LocalTime time) {
-		
-		
+	public LocalTime checkIn(Car car, LocalTime time) {
+		return lot.put(car, time);
+	
 	}// End of the checkIn method
 	
+	public LocalTime checkout(Car car, LocalTime time) {
+		if(lot.containsKey(car)) {
+			return lot.remove(car);
+		}
+		return null;
+	}
 	
+//	public double cost(Car car, LocalTime time) {
+//		if()
+//	}
 	
-	
-	
-	/*Adds a car to the parking lot
-	 * However if car lot is full then the car is not added, false is returned. 
-	 * returns true if parking lot isn't full */
-	public boolean addCar(Car car) {
-		if(isFull()) {
-			return false;
-		}// End of the if statement
-		return this.lot.add(car);
-		
-	}// End of the addCar method
-	
-	public boolean removeCar(Car car) {
-		if(this.isEmpty()) {
-			return false;
-		}// End of the if statement
-		
-		return this.lot.remove(car);
-	}// End of the removeCar method
 	
 	/*If the number of cars in the lot is equal to max spaces in the lot
 	 * then the method returns true
@@ -70,7 +58,7 @@ public class ParkingLot{
 	}// End of the numOfCars method
 	
 	public boolean contains(Car car) {
-		return this.lot.contains(car);
+		return this.lot.containsKey(car);
 	}// End of the contains method
 	
 	
