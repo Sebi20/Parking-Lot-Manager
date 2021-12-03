@@ -21,6 +21,10 @@ public class ParkingLot{
 	}// End of the Parking
 	
 	public LocalTime checkIn(Car car, LocalTime time) {
+		if(this.isFull()) {
+			System.out.println("Car lot is full");
+			return null;
+		}
 		return lot.put(car, time);
 	
 	}// End of the checkIn method
@@ -32,15 +36,6 @@ public class ParkingLot{
 		return null;
 	}
 	
-//	public double cost(Car car, LocalTime time) {
-//		if()
-//	}
-	
-	
-	/*If the number of cars in the lot is equal to max spaces in the lot
-	 * then the method returns true
-	 * otherwise, false
-	 * */
 	public boolean isFull() {
 		return this.lotMax == this.numOfCars();
 	}// End of the isFull method
