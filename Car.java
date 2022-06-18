@@ -1,4 +1,5 @@
 package vehicle;
+import java.util.Scanner;
 
 
 public class Car extends Vehicle{
@@ -6,7 +7,7 @@ public class Car extends Vehicle{
 
 	
 	public Car(String brand, String type, String name) {
-		super();
+		super(brand, type, name);
 	}// End of the constructor
 	
 	public Car(String VIN) {
@@ -33,4 +34,7 @@ public class Car extends Vehicle{
 	
 	
 }// End of the class
+
+
+
 

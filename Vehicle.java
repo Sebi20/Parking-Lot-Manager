@@ -3,7 +3,7 @@ package vehicle;
 import java.awt.*;
 
 public class Vehicle{
-	private Color color;// Color of the vehicle 
+	private String color;// Color of the vehicle 
 	private String brand;// Brand of the vehicle
 	private String type;// Type of the vehicle
 	private String name;// Given name of the vehicle
@@ -36,7 +36,7 @@ public class Vehicle{
 		this.type = type;
 	}// End of the setType method
 	
-	public void getColor(Color color) {
+	public void setColor(String color) {
 		this.color = color;
 	}// End of the setColor method
 	
@@ -59,10 +59,10 @@ public class Vehicle{
 	}// End of the getBrand method
 	
 	public String getType() {
-		return this.brand;
+		return this.type;
 	}// End of the getType method
 	
-	public Color getColor() {
+	public String getColor() {
 		return this.color;
 	}// End of the getColor method
 	
