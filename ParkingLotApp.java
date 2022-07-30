@@ -4,7 +4,7 @@ It's written to emulate a parking lot check in and checkout system*/
 package vehicle;
 import java.util.*;
 import java.io.*;
-import java.awt.Color;
+import java.time.LocalTime;
 
 public class ParkingLotApp{
 	
@@ -12,19 +12,20 @@ public class ParkingLotApp{
 		Car car;  
 		
 		Scanner input = new Scanner(System.in);
-		Scanner file = new Scanner(new File("/Users/sebiseb/eclipse-workspace/Random-p rojects/src/vehicle/ParkingLot.txt"));
+		Scanner file = new Scanner(new File("/Users/sebiseb/eclipse-workspace/Random-projects/src/vehicle/ParkingLot.txt"));
 		
-		int MAX;// Represents the MAX amount of cars allowed in the lot
+		final int MAX;// Represents the MAX amount of cars allowed in the lot
 		double price;// Price of staying in the lot per hour
 		
 		
-		System.out.println("What is the maximum number of cars that can hold in the lot?");
-		MAX = input.nextInt();
-		
-		System.out.println("What is your charge per hour?");
-		price = input.nextDouble();
+		MAX = 10;
+		price = 1.25;
 		
 		ParkingLot lot = new ParkingLot(MAX, price);
+		readFile(lot, file);
+		
+		System.out.println(lot.numOfCars());
+		lot.displayCars();
 		
 		
 		
@@ -50,7 +51,8 @@ public class ParkingLotApp{
 			Car car = new Car(brand, type, name);
 			car.setColor(color);
 			car.setVIN(vin);
-		
+			
+			lot.checkIn(car, LocalTime.now());
 			
 		}// End of the while loop
 		

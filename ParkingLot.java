@@ -69,6 +69,13 @@ public class ParkingLot{
 		return this.lot.containsValue(time);
 	}// End of the contains method
 	
+	public void displayCars() {
+		for (Map.Entry<Car, LocalTime> entry : lot.entrySet()) {
+		    System.out.println(entry.getKey() + "  " + entry.getValue());
+		}
+
+	}
+	
 	
 	
 	
