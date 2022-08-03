@@ -6,6 +6,7 @@ import java.util.*;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
 import javax.swing.JFrame;
 import java.io.*;
 import java.time.LocalTime;
@@ -31,34 +32,134 @@ public class ParkingLotApp{
 		//System.out.println(lot.numOfCars());
 		//lot.displayCars();
 		
+		//Initialization of the Contents
+		JFrame frame = new JFrame();
+		JPanel mainPanel = new JPanel();
 		
-		JFrame frame = new JFrame();// Creates an instance of a JFrame.
-		JLabel header = new JLabel();// Creates an instance of a JLabel. 
+		//These contents go in the mainPanel
+		JLabel headerLabel = new JLabel();
+		JPanel inputsContainerPanel = new JPanel();
+		
+		//These contents go into inputsContainerPanel
+		JPanel vinPanel = new JPanel();
+		JPanel typePanel = new JPanel();
+		JPanel brandPanel = new JPanel();
+		JPanel namePanel = new JPanel();
+		JPanel colorPanel = new JPanel();
+		JButton submit = new JButton("submit");
+		
+		//These contents go into vinPanel
+		JLabel vinLabel = new JLabel();
+		JTextField vin = new JTextField();
+		
+		//Code for the vinLabel
+		vinLabel.setText("VIN Number:");
+		
+		//Code for the vin
+		vin.setPreferredSize(new Dimension(100, 30));
+		
+		//Code for the vinPanel
+		//vinPanel.setBackground(Color.PINK);
+		vinPanel.add(vinLabel);
+		vinPanel.add(vin);
+		
+		//These contents go into typePanel
+		JLabel typeLabel = new JLabel();
+		JTextField type = new JTextField();
+		
+		//Code for the typeLabel
+		typeLabel.setText("Type:");
+		
+		//Code for the type
+		type.setPreferredSize(new Dimension(100, 30));
+		
+		//Code for the vinPanel
+		//typePanel.setBackground(Color.PINK);
+		typePanel.add(typeLabel);
+		typePanel.add(type);
+		
+		
+		//These contents go into brandPanel
+		JLabel brandLabel = new JLabel();
+		JTextField brand = new JTextField();
+		
+		//Code for the brandLabel
+		brandLabel.setText("Brand:");
+		
+		//Code for the brand
+		brand.setPreferredSize(new Dimension(100, 30));
+		
+		//Code for the brandPanel
+		//brandPanel.setBackground(Color.PINK);
+		brandPanel.add(brandLabel);
+		brandPanel.add(brand);
+		
+		
+		//These contents go into namePanel
+		JLabel nameLabel = new JLabel();
+		JTextField name = new JTextField();
+		
+		//Code for the nameLabel
+		nameLabel.setText("Name:");
+		
+		//Code for the name
+		name.setPreferredSize(new Dimension(100, 30));
+		
+		//Code for the namePanel
+		//namePanel.setBackground(Color.PINK);
+		namePanel.add(nameLabel);
+		namePanel.add(name);
+		
+		
+		//These contents go into colorPanel
+		JLabel colorLabel = new JLabel();
+		JTextField color = new JTextField();
+		
+		//Code for the colorLabel
+		colorLabel.setText("Color:");
+		
+		//Code for the color
+		color.setPreferredSize(new Dimension(100, 30));
+		
+		//Code for the colorPanel
+		//colorPanel.setBackground(Color.PINK);
+		colorPanel.add(colorLabel);
+		colorPanel.add(color);
+		
+		
+		//Code for the submit button
+		//submit.setBackground(new Color(2, 255, 255));
+		
+		
+		//Code for the headerLabel
+		headerLabel.setText("Parking lot Manager");
+		headerLabel.setPreferredSize(new Dimension(390, 50));
+		headerLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+		
+		//Code for the inputsContainerPanel
+		inputsContainerPanel.setLayout(new BoxLayout(inputsContainerPanel, BoxLayout.Y_AXIS));
+		//inputsContainerPanel.setBackground(Color.BLUE);
+		inputsContainerPanel.add(vinPanel);
+		inputsContainerPanel.add(typePanel);
+		inputsContainerPanel.add(brandPanel);
+		inputsContainerPanel.add(namePanel);
+		inputsContainerPanel.add(colorPanel);
+		inputsContainerPanel.add(submit);
+		
+		//Code for the mainPanel
+		//mainPanel.setBackground(Color.DARK_GRAY);
+		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+		mainPanel.add(headerLabel);
+		mainPanel.add(inputsContainerPanel);
+		
+		//Code for the frame
+		frame.setSize(390, 300);
+		frame.add(mainPanel);
+		frame.setVisible(true);
+		frame.setResizable(false);
 		
 		
 		
-		frame.setSize(700, 700);
-		frame.setTitle("Parking Lot Manager");// Sets the title of the frame (Displayed at the top).
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// This will allow you change what you want the frame to do when the frame is closed
-			// This specifically allows the frame to be closed and not on in the background
-		//frame.setResizable(false);// This method allows the frame to be resizable if true and not resizable if false.
-		frame.getContentPane().setBackground(new Color(38, 40, 32));// Changes the color of the background
-		
-		
-		header.setText("Parking Lot Manager");
-		header.setVerticalAlignment(JLabel.TOP);
-		header.setHorizontalAlignment(JLabel.CENTER);
-		header.setForeground(Color.WHITE);
-		
-		
-		
-		
-		
-		
-		frame.add(header);
-		frame.setVisible(true);// Allows you to see the frame if true.
-		input.close();
-		input.close();
 	}// End of the main function
 	
 	
