@@ -6,7 +6,7 @@ import java.util.*;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
+import javax.swing.border.*;
 import javax.swing.JFrame;
 import java.io.*;
 import java.time.LocalTime;
@@ -34,6 +34,9 @@ public class ParkingLotApp{
 		
 		//Initialization of the Contents
 		JFrame frame = new JFrame();
+		JFrame test = new JFrame();
+		test.setSize(390, 300);
+		test.setBackground(Color.black);
 		JPanel mainPanel = new JPanel();
 		
 		//These contents go in the mainPanel
@@ -128,7 +131,9 @@ public class ParkingLotApp{
 		
 		
 		//Code for the submit button
-		//submit.setBackground(new Color(2, 255, 255));
+		submit.setBackground(new Color(255, 89, 32));
+		submit.setOpaque(true);
+		submit.setBorderPainted(false);
 		
 		
 		//Code for the headerLabel
@@ -149,47 +154,29 @@ public class ParkingLotApp{
 		//Code for the mainPanel
 		//mainPanel.setBackground(Color.DARK_GRAY);
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-		mainPanel.add(headerLabel);
+		//mainPanel.add(headerLabel);
 		mainPanel.add(inputsContainerPanel);
 		
+		//Action listener when a user submits
+		submit.addActionListener(e -> {
+			
+			test.setVisible(true);
+			System.out.println("Vin: " + vin.getText());
+			System.out.println("type: " + type.getText());
+			System.out.println("brand: " + brand.getText());
+			System.out.println("name: " + name.getText());
+			System.out.println("color: " + color.getText());
+		});
+		
 		//Code for the frame
-		frame.setSize(390, 300);
+		frame.setTitle("Parking Lot Manager");
+		frame.setSize(490, 400);
 		frame.add(mainPanel);
 		frame.setVisible(true);
 		frame.setResizable(false);
 		
 		
 		
-	}// End of the main function
-	
-	
-	
-	
-	
-	
-	
-	public static void readFile(ParkingLot lot, Scanner file) {
-		String vin;
-		String type;
-		String brand;
-		String name;
-		String color;
-		
-		while(file.hasNext()) {
-			vin = file.next();
-			type  = file.next();
-			brand = file.next();
-			name = file.next();
-			color = file.next();
-			
-			Car car = new Car(brand, type, name);
-			car.setColor(color);
-			car.setVIN(vin);
-			
-			lot.checkIn(car, LocalTime.now());
-			
-		}// End of the while loop
-		
-	}// End of the ReadFile method
+	}// End of the main method
 	
 }// End of the class
